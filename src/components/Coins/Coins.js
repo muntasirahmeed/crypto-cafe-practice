@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import CoinCard from '../CoinCard/CoinCard';
 
@@ -13,8 +12,15 @@ const Coins = () => {
         })
     },[])
     return (
-        <div className='bg-gray-100'>
-            <div className='flex '>
+        <div className='bg-gray-100 mx-auto max-w-7xl'>
+            <div className='pt-10'>
+            <h1 className='text-4xl text-center text-gray-800 font-mono'>
+            Available Crypto Currencies
+                </h1>
+                <p className='text-center text-xl text-gray-500 font-sans mt-2'>Total Coins: { coins.length}</p>
+           </div>
+            
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4  pt-16 pb-20 justify-items-center '>
             {
                 coins.map(coin => <CoinCard key={coin.id} coin={coin}></CoinCard>)
             }
