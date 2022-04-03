@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const CoinDetails = () => {
   const [coin, setCoin] = useState([]);
+  const [loading,setLoading]=useState(false)
   const {
     community_score,
     country_origin,
@@ -13,16 +15,19 @@ const CoinDetails = () => {
   } = coin;
   const { id } = useParams();
   useEffect(() => {
+    setLoading(true)
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setCoin(data);
+        setLoading(false)
       });
   }, [id]);
   return (
-    <div className="flex flex-col-reverse md:flex-row  h-[90vh] max-w-screen-2xl mx-auto justify-around items-center bg-gray-100">
+    <>
+      {loading?<Spinner></Spinner>: <div className="flex flex-col-reverse md:flex-row  h-[90vh] max-w-screen-2xl mx-auto justify-around items-center bg-gray-100">
       <div className="">
         <h1 className="text-3xl text-gray-800">General Info</h1>
         <hr />
@@ -39,7 +44,8 @@ const CoinDetails = () => {
       <div className="">
         <img src={coin.image?.large} alt="" />
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 

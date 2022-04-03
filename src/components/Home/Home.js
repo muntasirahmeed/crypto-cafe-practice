@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-gray-100 max-w-screen-2xl mx-auto'>
             <div className='flex flex-col h-[90vh] items-center justify-center'>
                 <h1 className='font-mono mb-4 md:text-5xl text-xl '>Welcome to CRYPTO CAFE
                     <span className='md:text-6xl text-xl mt-0'>☕</span></h1>
