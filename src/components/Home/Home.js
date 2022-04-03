@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -6,7 +7,7 @@ const Home = () => {
             <div className='flex flex-col h-[90vh] items-center justify-center'>
                 <h1 className='font-mono mb-4 md:text-5xl text-xl '>Welcome to CRYPTO CAFE
                     <span className='md:text-6xl text-xl mt-0'>☕</span></h1>
-                <button className='bg-cyan-600	px-6  py-2 rounded-full text-white'>Explore Coins</button>
+                <Link to='/coins' className='bg-cyan-600	px-6  py-2 rounded-full text-white'>Explore Coins</Link>
             </div> 
         </div>
     );
